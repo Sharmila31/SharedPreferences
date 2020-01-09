@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SharedPreference.mSaveUserId("10001");
+        SharedPreference.mSaveUserId("10001",MainActivity.this);
 
         initializeDB();
     }
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private void initializeDB() {
         UserId = findViewById(R.id.UserId);
 
-        UserId.setText(SharedPreference.mGetUserId());
+        UserId.setText(SharedPreference.mGetUserId(MainActivity.this));
 
 
         try {

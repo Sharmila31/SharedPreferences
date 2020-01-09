@@ -10,9 +10,9 @@ public class SharedPreference {
     private static String PREFS_USER_ID = "UserId";
 
 
-    public static void mSaveUserId(String getUserId) {
+    public static void mSaveUserId(String getUserId,Context context) {
 
-        SharedPreferences settings = AppController.getInstance().getSharedPreferences(PREFS_USER_ID, Context.MODE_PRIVATE);
+        SharedPreferences settings = context.getSharedPreferences(PREFS_USER_ID, Context.MODE_PRIVATE);
 
         SharedPreferences.Editor editor = settings.edit();
 
@@ -21,9 +21,9 @@ public class SharedPreference {
         editor.apply();
     }
 
-    public static String mGetUserId()
+    public static String mGetUserId(Context context)
     {
-        SharedPreferences settings = AppController.getInstance().getSharedPreferences(PREFS_USER_ID, Context.MODE_PRIVATE);
+        SharedPreferences settings = context.getSharedPreferences(PREFS_USER_ID, Context.MODE_PRIVATE);
 
         return settings.getString(USER_ID, "");
     }
