@@ -1,11 +1,16 @@
-package com.example.sharedpreferences;
+package com.example.sharedpreferences.Controller;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sharedpreferences.R;
 import com.example.sharedpreferences.SqliteController.DBManager;
 import com.example.sharedpreferences.SqliteController.StudentLogModel;
+
+import org.w3c.dom.Text;
 
 import java.util.Vector;
 
@@ -13,16 +18,23 @@ public class MainActivity extends AppCompatActivity {
 
     DBManager dbManager;
     Vector<StudentLogModel> studentLogModels;
+    TextView UserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SharedPreference.mSaveUserId("10001");
+
         initializeDB();
     }
 
     private void initializeDB() {
+        UserId = findViewById(R.id.UserId);
+
+        UserId.setText(SharedPreference.mGetUserId());
+
 
         try {
             if (dbManager == null)

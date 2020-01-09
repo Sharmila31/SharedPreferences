@@ -1,4 +1,4 @@
-package com.example.sharedpreferences;
+package com.example.sharedpreferences.Controller;
 
 import android.content.Context;
 import android.content.SharedPreferences;
